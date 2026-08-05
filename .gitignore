@@ -1,0 +1,17 @@
+
+# macOS
+.DS_Store
+
+# IDE
+.idea/
+
+# CMake / Qt build output
+build/
+build-*/
+cmake-build-*/
+
+# Xcode generated data
+DerivedData/
+*.xcuserstate
+xcuserdata/
+
