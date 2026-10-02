@@ -57,6 +57,46 @@ qt_add_qml_module(
         pages/PlotCard.qml
 )
 
+# ---------------------------------------------------------
+# iOS app configuration
+# ---------------------------------------------------------
+
+if(IOS)
+
+    set(APP_ASSET_CATALOG
+            "${CMAKE_CURRENT_SOURCE_DIR}/assets/Assets.xcassets"
+    )
+
+    target_sources(
+            RLOSDashboard
+            PRIVATE
+            ${APP_ASSET_CATALOG}
+    )
+
+    set_source_files_properties(
+            ${APP_ASSET_CATALOG}
+            PROPERTIES
+            MACOSX_PACKAGE_LOCATION Resources
+    )
+
+    set_target_properties(
+            RLOSDashboard
+            PROPERTIES
+
+            MACOSX_BUNDLE TRUE
+
+            MACOSX_BUNDLE_GUI_IDENTIFIER
+            "inAirAviation.RLOSDashboard"
+
+            XCODE_ATTRIBUTE_PRODUCT_BUNDLE_IDENTIFIER
+            "inAirAviation.RLOSDashboard"
+
+            XCODE_ATTRIBUTE_ASSETCATALOG_COMPILER_APPICON_NAME
+            "AppIcon"
+    )
+
+endif()
+
 target_link_libraries(
         RLOSDashboard
 
